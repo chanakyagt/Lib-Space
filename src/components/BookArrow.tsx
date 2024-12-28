@@ -11,7 +11,7 @@ const BookArrow = ({isbn}) => {
         router.push(`/books/${isbn}`)
       }
   return (
-    <Button onClick={()=>arrowHandler(isbn)}><ArrowRight></ArrowRight> </Button>
+    <Button onClick={()=>arrowHandler(isbn)} className=' hover:bg-blue-600'><ArrowRight></ArrowRight> </Button>
   )
 }
 

@@ -3,13 +3,16 @@ import React, { useEffect, useState } from 'react'
 import { fetchUsers } from "../../../../../actions/FetchUsers"
 import UserCard from '@/components/UserCard'
 import UserSearch from '@/components/UserSearh'
+import UserSkeletonCard from '@/components/UserSkeletonCard'
 
 const book = () => {
+  const[loadingState,setLoadingState]=useState(true)
   const [users,setUsers]=useState([])
   useEffect(() => {
     const getUsers = async()=>{
       const users =await fetchUsers()
       setUsers(users)
+      setLoadingState(false)
       console.log(users)
     }
 
@@ -21,12 +24,25 @@ const book = () => {
   return (
     <div className='flex flex-col gap-4 w-full bg-orange-600'>
       <UserSearch></UserSearch>
-      <div className="flex flex-wrap gap-2">{
+      {loadingState?
+      <div className="flex flex-wrap gap-2">
+        <UserSkeletonCard></UserSkeletonCard>
+        <UserSkeletonCard></UserSkeletonCard>
+        <UserSkeletonCard></UserSkeletonCard>
+        <UserSkeletonCard></UserSkeletonCard>
+        <UserSkeletonCard></UserSkeletonCard>
+        <UserSkeletonCard></UserSkeletonCard>
+        <UserSkeletonCard></UserSkeletonCard>
+        </div>
+    :
+        <div className="flex flex-wrap gap-2">{
 
-users.map((item)=>{
-  return (<UserCard key={item.email} item={item}></UserCard>)
-})
-}</div>
+          users.map((item)=>{
+            return (<UserCard key={item.email} item={item}></UserCard>)
+          })
+          }</div>
+      }
+      
       </div>
   )
 }

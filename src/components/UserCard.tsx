@@ -10,13 +10,15 @@ import {
   import CardArrow from './CardArrow'
 const UserCard = ({item}) => {
   return (
-    <Card>
+    <Card className='w-[200px] h-[230px] rounded-md'>
   <CardHeader>
-    <CardTitle>{item.name}</CardTitle>
-    <CardDescription className='italic'>{item.email}</CardDescription>
+    <CardTitle className='text-lg'>{item.name}</CardTitle>
+    <CardDescription className='italic text-md font-bold text-blue-600'>
+      {item.email}
+  <p className='mx-[1px]text-sm '>({item.userType })</p>
+      </CardDescription>
   </CardHeader>
   <CardContent>
-  <p className='mx-[1px] my-[1px] text-sm text-black-900'>user Type:{item.userType }</p>
     <p className='mx-[1px] my-[1px] text-sm'>Borrowed Books:{item.borrowedBooks.length }</p>
   </CardContent>
   <CardFooter>

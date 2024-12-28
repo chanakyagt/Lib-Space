@@ -1,7 +1,7 @@
 'use client'
 import { Separator } from '@radix-ui/react-separator'
 import React from 'react'
-import { ArrowRight } from 'lucide-react' 
+import { ArrowRight, EllipsisVertical } from 'lucide-react' 
 import { Badge } from "@/components/ui/badge"
 
 import {
@@ -16,9 +16,9 @@ import { Button } from './button'
 import BookArrow from '../BookArrow'
 import { BorrowBook } from '../../../actions/BorrowBook'
 import { ObjectId } from 'mongoose'
-import { useToast } from '@/hooks/use-toast'
 import { useBorrowhandler } from '../../../hooks/useBorrowHandler'
-
+import { Skeleton } from "@/components/ui/skeleton"
+import BookThreeDots from '../BookThreeDots'
 
 const BookCard = ({id,title,isbn,author,available,tags}) => {
 const {BorrowHandler}=useBorrowhandler();
@@ -43,8 +43,17 @@ const onBorrowClick=async(id:ObjectId)=>{
 
 <Card className='w-[300px]'>
   <CardHeader>
-    <CardTitle className='line-clamp-2 '>{title}</CardTitle>
-    <CardDescription className='italic font-bold '>by {author}</CardDescription>
+    <div className="flex justify-between">
+      
+    <div className='w-[260px]'>
+    <CardTitle className='line-clamp-2'>{title}</CardTitle>
+    <CardDescription className='italic font-bold  text-blue-600'>by {author}</CardDescription>
+    </div>
+
+    
+    <BookThreeDots book={{id,title,isbn,author,available,tags}}></BookThreeDots>
+    
+    </div>
   </CardHeader>
   <CardContent className='my-1 w-full h-[120px] line-clamp-4 '>
  <div> <p className='text-sm my-[3px] text-zinc-800 text font-bold '>Available copies:{available}</p>
@@ -58,16 +67,16 @@ const onBorrowClick=async(id:ObjectId)=>{
   {
     tags.map((item)=>{
       console.log(item)
-    return (  <Badge className='mx-[1px] my-[1px] text-xs' key={item}>{item}</Badge>)
+    return (  <Badge className='mx-[1px] my-[1px] text-xs ' key={item}>{item}</Badge>)
     })
   }
   </div>
   </CardContent>
   <CardFooter className='flex justify-between'>
-    <Button onClick={()=>{onBorrowClick(id)}}>Borrow</Button>
+    <Button onClick={()=>{onBorrowClick(id)}} className=' hover:bg-blue-600'>Borrow</Button>
     
     
-    <BookArrow isbn={isbn}></BookArrow>
+    <BookArrow  isbn={isbn}></BookArrow>
   </CardFooter>
 </Card>
 </div>
