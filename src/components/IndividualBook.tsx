@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Badge } from './ui/badge'
 import { BookPlusIcon } from 'lucide-react'
 import AddBook from './AddBook'
 const IndividualBook = ({book}) => {
+
   
   console.log(
     "in component",book)

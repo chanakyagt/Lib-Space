@@ -37,7 +37,8 @@ import { AI } from "../../ai/FetchAISummary";
 import { generate } from "../../ai/AIStreamingSummary";
 import { readStreamableValue } from "ai/rsc";
 import BookForm from "./BookForm";
-const AddBookPlus = () => { 
+import UserForm from "./UserForm";
+const AddUserPlus = () => { 
   const [openState, setOpenState] = useState(false);
 
   return (
@@ -50,9 +51,9 @@ const AddBookPlus = () => {
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle className="mx-5">Add a new book to libspace</DialogTitle>
+          <DialogTitle className="mx-5">Add a new user to libspace</DialogTitle>
           <DialogDescription>
-            <BookForm></BookForm>
+            <UserForm></UserForm>
           </DialogDescription>
         </DialogHeader>
       </DialogContent>
@@ -60,4 +61,4 @@ const AddBookPlus = () => {
   );
 };
 
-export default AddBookPlus;
+export default AddUserPlus;

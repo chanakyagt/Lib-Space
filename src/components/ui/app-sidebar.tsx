@@ -25,8 +25,8 @@ import { useState } from "react";
 
 const items_admin = [
   {
-    title: "Home",
-    url: "/Home",
+    title: "Dashboard",
+    url: "/dashboard",
     icon: HomeIcon,
   },
   {

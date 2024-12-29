@@ -4,6 +4,7 @@ import { fetchUsers } from "../../../../../actions/FetchUsers"
 import UserCard from '@/components/UserCard'
 import UserSearch from '@/components/UserSearh'
 import UserSkeletonCard from '@/components/UserSkeletonCard'
+import AddUserPlus from '@/components/AddUserPlus'
 
 const book = () => {
   const[loadingState,setLoadingState]=useState(true)
@@ -22,7 +23,7 @@ const book = () => {
   
 
   return (
-    <div className='flex flex-col gap-4 w-full bg-orange-600'>
+    <div className='flex flex-col gap-4 w-full'>
       <UserSearch></UserSearch>
       {loadingState?
       <div className="flex flex-wrap gap-2">
@@ -42,7 +43,7 @@ const book = () => {
           })
           }</div>
       }
-      
+      <AddUserPlus></AddUserPlus>
       </div>
   )
 }

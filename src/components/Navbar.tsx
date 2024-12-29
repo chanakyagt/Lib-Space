@@ -9,9 +9,6 @@ const Navbar = () => {
       <h1 className='font-bold'>Lib<span className='text-blue-600 italic'>Space</span></h1>
       </Link>
       <div className='flex justify-between gap-3'>
-        <Link href="/products">
-          <p className='text-xs font-medium hover:text-blue-600 hover:italic '>Products</p>
-        </Link>
         <Link href="/pricing">
           <p className='text-xs font-medium hover:italic'>Pricing</p>
         </Link>

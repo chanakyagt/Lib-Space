@@ -23,6 +23,7 @@ import { useDeleteHandler } from '../../actions/useDeleteHandler'
 import { revalidatePath } from 'next/cache'
 import AddBookPlus from './AddBookPlus'
 import BookForm from './BookForm'
+import BookEditForm from './BookEditForm'
 
 const BookThreeDots = ({book}) => {
     const[clickedTrash,setClickedTrash]=useState(false)
@@ -75,7 +76,7 @@ const BookThreeDots = ({book}) => {
       <DialogDescription >
         Change the fields of the  book {book.title} and click on save
         <div>
-        <BookForm></BookForm>
+        <BookEditForm book={book}></BookEditForm>
         </div>
       </DialogDescription>
     </DialogHeader>

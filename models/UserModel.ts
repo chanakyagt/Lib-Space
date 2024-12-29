@@ -2,6 +2,7 @@
 import mongoose from "mongoose";
 import z from 'zod'
 import { userResolver } from "../zodResolvers/userResolver";
+import bookModel from "./BookModels";
 export const userSchema = new mongoose.Schema({
     name: {
       type: String,
@@ -20,7 +21,7 @@ export const userSchema = new mongoose.Schema({
     borrowedBooks: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Book'
+        ref: bookModel
       }
     ],
     userType:[
