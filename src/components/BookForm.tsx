@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import {
     Dialog,
@@ -36,9 +37,11 @@ import {
   import { AI } from "../../ai/FetchAISummary";
   import { generate } from "../../ai/AIStreamingSummary";
   import { readStreamableValue } from "ai/rsc";
+import { useAddBookHandler } from '../../hooks/useAddBookHandler';
 
    
 const BookForm = () => {
+  const {AddBookHandler}=useAddBookHandler()
     const [tags, setTags] = useState([]);
     const [generation, setGeneration] = useState<string>("");
     const [openState, setOpenState] = useState(false);
@@ -55,8 +58,11 @@ const BookForm = () => {
     });
     const onSubmit = (values: z.infer<typeof bookResolver>) => {
       console.log(values);
-      addBookToDB({ ...values, tags });
-      setOpenState(false);
+      AddBookHandler({ ...values, tags });
+      // setOpenState(false);
+      setTimeout(function () {
+        location.reload();
+    }, 2000);
     };
   
     const onKeyDownHandler = (event) => {

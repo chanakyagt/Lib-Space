@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ai-sdk/google": "^1.0.12",
     "@ai-sdk/openai": "^1.0.11",
     "@hookform/resolvers": "^3.9.1",
     "@radix-ui/react-checkbox": "^1.1.3",

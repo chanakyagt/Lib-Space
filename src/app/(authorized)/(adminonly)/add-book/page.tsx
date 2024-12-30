@@ -29,8 +29,10 @@ import { Brain } from 'lucide-react'
 import { AI } from '../../../../../ai/FetchAISummary'
 import { generate } from '../../../../../ai/AIStreamingSummary'
 import { readStreamableValue } from 'ai/rsc'
+import { useAddBookHandler } from '../../../../../hooks/useAddBookHandler'
 
 const page = () => {
+  const {AddBookHandler}=useAddBookHandler()
   const [tags, setTags] = useState([])
   const [generation, setGeneration] = useState<string>('');
 
@@ -47,7 +49,10 @@ const page = () => {
   })
   const onSubmit = (values: z.infer<typeof bookResolver>) => {
     console.log(values)
-    addBookToDB({ ...values, tags })
+    AddBookHandler({ ...values, tags })
+    setTimeout(function () {
+      location.reload();
+  }, 2000);
   }
 
   const onKeyDownHandler = (event) => {

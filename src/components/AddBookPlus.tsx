@@ -48,7 +48,7 @@ const AddBookPlus = () => {
           +
         </button>
       </DialogTrigger>
-      <DialogContent>
+      <DialogContent className="w-full max-w-lg sm:max-w-xl lg:max-w-2xl h-[80vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="mx-5">Add a new book to libspace</DialogTitle>
           <DialogDescription>

@@ -12,14 +12,14 @@ const UserCard = ({item}) => {
   return (
     <Card className='w-[200px] h-[230px] rounded-md'>
   <CardHeader>
-    <CardTitle className='text-lg'>{item.name}</CardTitle>
-    <CardDescription className='italic text-md font-bold text-blue-600'>
+    <CardTitle className='text-lg line-clamp-1 '>{item.name}</CardTitle>
+    <CardDescription className='italic text-md font-bold text-blue-600 line-clamp-1'>
       {item.email}
-  <p className='mx-[1px]text-sm '>({item.userType })</p>
+  <p className='mx-[1px]text-sm line-clamp-1'>({item.userType })</p>
       </CardDescription>
   </CardHeader>
   <CardContent>
-    <p className='mx-[1px] my-[1px] text-sm'>Borrowed Books:{item.borrowedBooks.length }</p>
+    <p className='mx-[1px] my-[1px] text-sm line-clamp-1'>Borrowed Books:{item.borrowedBooks.length }</p>
   </CardContent>
   <CardFooter>
   <div className='w-full  flex justify-end'>

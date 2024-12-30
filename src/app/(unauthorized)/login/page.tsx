@@ -1,8 +1,12 @@
+import { LoginComponent } from '@/components/LoginComponent'
 import React from 'react'
 
 const LoginPage = () => {
   return (
-    <div>LoginPage</div>
+    <div className="h-[80vh] w-full flex justify-center items-center ">
+    
+      <LoginComponent/>
+    </div>
   )
 }
 

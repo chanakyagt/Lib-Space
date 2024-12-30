@@ -22,7 +22,9 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { addUserToDB } from "../../../../../actions/AddUser"
+import { useAddUserHandler } from "../../../../../hooks/useAddUserHandler"
 const page = () => {
+  const {AddUserHandler}=useAddUserHandler()
   const form=useForm<z.infer<typeof userResolver>>({
     resolver:zodResolver(userResolver),
     defaultValues:{
@@ -35,8 +37,11 @@ const page = () => {
   const onSubmit=(values: z.infer<typeof userResolver>)=> {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
-    addUserToDB(values)
+    AddUserHandler(values)
     console.log(values)
+    setTimeout(function () {
+      location.reload();
+  }, 2000);
   }
   return (
     
