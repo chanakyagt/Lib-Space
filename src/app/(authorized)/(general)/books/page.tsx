@@ -13,7 +13,8 @@ const Page = () => {
   useEffect(() => {
     const getBooks = async () => {
       const fetchedBooks = await fetchBooks();
-      setBooks(fetchedBooks);
+      console.log(fetchedBooks)
+      setBooks(JSON.parse(fetchedBooks));
       isLoading(false);
       console.log(fetchedBooks);
     };
@@ -36,17 +37,27 @@ const Page = () => {
         </div>
       ) : (
         <div className="w-full flex gap-5 flex-wrap">
-          {books.map((item) => (
-            <BookCard
-              id={item._id}
-              key={item.isbn}
-              title={item.title}
-              isbn={item.isbn}
-              tags={item.tags}
-              author={item.author}
-              available={item.availableQuantity}
-            />
-          ))}
+          {books.map((item) => {
+  const id = item._id;
+  const key = item.isbn;
+  const title = item.title;
+  const isbn = item.isbn;
+  const tags = item.tags;
+  const author = item.author;
+  const available = item.availableQuantity;
+
+  return (
+    <BookCard
+      id={id}
+      key={key}
+      title={title}
+      isbn={isbn}
+      tags={tags}
+      author={author}
+      available={available}
+    />
+  );
+})}
         </div>
       )}
 

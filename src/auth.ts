@@ -1,4 +1,3 @@
-'use server'
 import NextAuth, { CredentialsSignin } from "next-auth";
 import { z } from "zod";
 import { loginResolver } from "../zodResolvers/loginResolver";

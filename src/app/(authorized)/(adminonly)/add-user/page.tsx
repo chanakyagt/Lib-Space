@@ -44,7 +44,9 @@ const page = () => {
   }, 2000);
   }
   return (
-    
+    <div className="w-[60vw] mx-auto p-6">
+
+
     <Form {...form}>
     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
       <FormField
@@ -118,6 +120,7 @@ const page = () => {
       <Button type="submit">Submit</Button>
     </form>
   </Form>
+    </div>
 
   )
 }
